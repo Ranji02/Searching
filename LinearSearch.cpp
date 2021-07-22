@@ -1,41 +1,38 @@
 #include<iostream>
 
+#define size 6
+
 using namespace std;
 
-int main()
-{
-    cout<<"\t......Linear Search......\n"<<endl;
-    int len,Ele,key;
-    cout <<"Enter the length of the array :";
-    cin>>len;
-    int arr[len];
-    cout <<"Enter "<<len<<" Elements :"<<endl;
-    for(int i=0;i<len;i++)
-    {
-        cout<<"Enter "<<i<<"th element: ";
-        cin>>arr[i];
-    }
-    cout<<"\nThe array is:"<<endl;
-    for(int i=0;i<len;i++)
-    {
-        cout<<arr[i]<<"  ";
-    }
-
-    cout<<"\n\nEnter the Element to be Searched :";
-    cin>>Ele;
-    for(int i=0;i<len;i++)
+int LinearSearch(int arr[size],int Ele){
+    for(int i=0;i<size;i++)
     {
         if(Ele==arr[i])
         {
-            key=i+1;
-            break;
+            return i+1;
         }
     }
+    return 0;
+}
+
+int main()
+{
+    cout<<"\t......Linear Search......"<<endl;
+    int Ele,key;
+    int arr[size]={65,78,23,90,122};
+    cout<<"Array is:"<<endl;
+    for(auto i: arr)
+    {
+        cout<<i<<"  ";
+    }
+    cout<<"\nEnter the Element to be Searched :";
+    cin>>Ele;
+    key=LinearSearch(arr,Ele);
+    
     if(key!=0)
         cout<<Ele<<" is found at Position "<<key<<endl;
     else
         cout<<Ele <<" is not found"<<endl;
     
     return 0;
-
 }
